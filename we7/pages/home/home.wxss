@@ -131,6 +131,13 @@
 .btn{
   width: 90%;
   height: 120rpx;
+  background: #ffda2f;
+  color: #66467a;
+  line-height: 100rpx; 
+  border-radius: 60rpx;
+  border: 5px solid #4a2b60;
+  font-size: 60rpx;
+  font-weight: bold;
 }
 .borderNone{
   border: none!important;

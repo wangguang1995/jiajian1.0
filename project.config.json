@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wx06c9040005f15d75",
-	"projectname": "jiajian1.0.1",
+	"projectname": "jiajian1.0.2",
 	"svr": "./",
 	"client": "./",
 	"qcloudRoot": "./server",

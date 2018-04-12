@@ -39,7 +39,8 @@
     <text class='contentTitle contentFirstText'>加减大师</text>
     <text class='contentTitle contentFirstText'>判断力训练</text>
     <text class='contentFirstText'>当前共有{{num}}次挑战</text>
-    <image src='../../resource/images/icon-btn.png' class='btn' bindtap='answer'></image>
+    <button class='btn' bindtap='answer'>开始挑战</button>
+    <audio id="myAudio" src='https://y.qq.com/n/yqq/song/104129385_num.html?ADTAG=h5_playsong&no_redirect=1' controls loop></audio>
     <button open-type="share" class='share' bindtap='onShareAppMessage'>
         <image src='../../resource/images/wx-logo.png' class='logo'></image>
         <text class='but-text' class='contentFirstText'> 约群朋友一起来挑战</text>
