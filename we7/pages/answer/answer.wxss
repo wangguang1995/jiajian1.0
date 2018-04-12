@@ -1,7 +1,7 @@
 /* pages/answer/answer.wxss */
 page{
   height: 100%;
-  background: #fff;
+  background: #313131;
 }
 .answerbg{
   background: #7c479f;

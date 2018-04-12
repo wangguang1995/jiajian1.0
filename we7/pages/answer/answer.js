@@ -8,6 +8,7 @@ Page({
   data: {
     jindu: 100,
     value:1,
+    now:50,
     isJson: [
       {
         id: 0,
@@ -63,7 +64,7 @@ Page({
       _this.setData({
         jindu: progressNum
       })
-    }, 33.3)
+    }, _this.data.now)
   },
   //点击事件
   answerTrue: function (e) {
@@ -90,9 +91,11 @@ Page({
       clearInterval(timer);
       this.setData({
         isJson: this.data.isJson2,
-        value:num
+        value:num,
+        now:this.data.now-2
       })
-      console.log(this.data.value)
+      console.log(this.data.now);
+      
       this.progress();
     } else {
       wx.showToast({

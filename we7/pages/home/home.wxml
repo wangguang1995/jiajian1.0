@@ -26,7 +26,7 @@
             <text class='zhzhaoBottom'>如需了解详情请联系客服</text>
             <button class='zhezhaoBtn' open-type='contact' session-from='weapp'>立即联系</button>
         </view>
-        <image src='../../resource/images/zhezhao-icon-hide.png' class='icon-hide'bindtap='displayHide'></image>
+        <image src='../../resource/images/index-icon-hide.png' class='icon-hide'bindtap='displayHide'></image>
     </view>
     <view class='content'>
       <view class='contentTop'>
@@ -40,7 +40,6 @@
     <text class='contentTitle contentFirstText'>判断力训练</text>
     <text class='contentFirstText'>当前共有{{num}}次挑战</text>
     <button class='btn' bindtap='answer'>开始挑战</button>
-    <audio id="myAudio" src='https://y.qq.com/n/yqq/song/104129385_num.html?ADTAG=h5_playsong&no_redirect=1' controls loop></audio>
     <button open-type="share" class='share' bindtap='onShareAppMessage'>
         <image src='../../resource/images/wx-logo.png' class='logo'></image>
         <text class='but-text' class='contentFirstText'> 约群朋友一起来挑战</text>
