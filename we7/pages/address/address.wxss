@@ -1,0 +1,35 @@
+/* we7/pages/address/address.wxss */
+page{
+  background: #fff;
+}
+.addressName{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100rpx;
+  width: 95%;
+  margin: 0 auto;
+  align-items: center;
+}
+.addressName text{
+  width: 20%;
+}
+.addressName input{
+  width: 70%;
+}
+.section{
+  width: 70%;
+}
+.picker{
+  position: relative;
+}
+.picker input{
+  width: 100%;
+}
+.pickerDw{
+  position: absolute;
+  right:0;
+  top: 20%;
+  height: 30rpx;
+  width: 30rpx;
+}

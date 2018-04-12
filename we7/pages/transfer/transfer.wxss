@@ -1,0 +1,20 @@
+/* pages/answer/answer.wxss */
+page{
+  height: 100%;
+  background: #313131;
+}
+.answerbg{
+  background: #7c479f;
+  width: 100%;
+  height: 800rpx;
+  text-align: center;
+  padding-top: 20rpx;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  box-shadow: 3px 5px 3px #57326f;
+}
+.num{
+  font-size: 400rpx;
+  line-height: 800rpx;
+  color: #fff;
+}
