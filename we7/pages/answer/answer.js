@@ -10,7 +10,7 @@ Page({
     value:1,
     now:50,
     isJson: [
-      {
+      {          
         id: 0,
         num1: 7,
         fuhao: "+",
@@ -46,7 +46,7 @@ Page({
    */
   onReady: function (e) {
 
-  },
+},
   //进度条动画
   progress: function (e) {
     var progressNum = 100;
