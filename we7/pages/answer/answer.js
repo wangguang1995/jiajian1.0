@@ -1,7 +1,6 @@
 // pages/answer/answer.js
 var timer;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -92,7 +91,7 @@ Page({
       this.setData({
         isJson: this.data.isJson2,
         value:num,
-        now:this.data.now-2
+        now:this.data.now-20
       })
       console.log(this.data.now);
       

@@ -24,12 +24,47 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "index",
+					"pathName": "we7/pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "answer",
+					"pathName": "we7/pages/answer/answer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "we7/pages/address/address",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "home",
+					"pathName": "we7/pages/home/home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "transfer",
+					"pathName": "we7/pages/transfer/transfer",
+					"query": ""
+				}
+			]
 		}
 	}
 }
