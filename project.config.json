@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wx06c9040005f15d75",
-	"projectname": "jiajian1.0.2",
+	"projectname": "1.0.3",
 	"svr": "./",
 	"client": "./",
 	"qcloudRoot": "./server",
@@ -37,31 +37,31 @@
 				{
 					"id": 0,
 					"name": "index",
-					"pathName": "we7/pages/index/index",
+					"pathName": "aishang_jzds/pages/index/index",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "answer",
-					"pathName": "we7/pages/answer/answer",
+					"pathName": "aishang_jzds/pages/answer/answer",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "address",
-					"pathName": "we7/pages/address/address",
+					"pathName": "aishang_jzds/pages/address/address",
 					"query": ""
 				},
 				{
 					"id": 3,
 					"name": "home",
-					"pathName": "we7/pages/home/home",
+					"pathName": "aishang_jzds/pages/home/home",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "transfer",
-					"pathName": "we7/pages/transfer/transfer",
+					"pathName": "aishang_jzds/pages/transfer/transfer",
 					"query": ""
 				}
 			]

@@ -1,0 +1,24 @@
+<view class='answerbg' bindtap='start'>
+    <text class='title'>连续答对40题即挑战成功</text>
+    <view class='rq'>
+        <progress percent="{{jindu}}" stroke-width="20" class='progress' />
+    </view>
+    <view class='contentNum'>
+        <text>第{{value}}题</text>
+    </view>
+    <view wx:for='{{isJson}}'>
+        <view wx:key=''>
+            <text class='num1'>{{item.num1}}</text>
+            <text class='fuhao1'>{{item.fuhao}}</text>
+            <text class='num2'>{{item.num2}}</text>
+            <view>
+                <text class='fuhao2'>=</text>
+                <text class='result'>{{item.result}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class='answerBut'>
+    <image src='../../images/icon-dui.png' bindtap='answerTrue'></image>
+    <image src='../../images/icon-cuo.png' bindtap='answerFalse'></image>
+</view>

@@ -1,31 +1,31 @@
 {
-  "pages": [
-    "we7/pages/index/index",
-    "we7/pages/home/home",
-    "we7/pages/answer/answer",
-    "we7/pages/address/address",
-    "we7/pages/transfer/transfer"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "backgroundColor": "#f8e1da",
-    "list": [
-      {
-        "pagePath": "we7/pages/index/index",
-        "text": "我要挑战",
-        "iconPath": "we7/resource/images/icon-index2.png",
-        "selectedIconPath": "we7/resource/images/icon-index.png"
-      },
-      {
-        "pagePath": "we7/pages/home/home",
-        "text": "个人中心",
-        "iconPath": "we7/resource/images/icon-info.png",
-        "selectedIconPath": "we7/resource/images/icon-info2.png"
-      }
-    ]
-  }
+    "pages": [
+        "aishang_jzds/pages/index/index",
+        "aishang_jzds/pages/home/home",
+        "aishang_jzds/pages/answer/answer",
+        "aishang_jzds/pages/address/address",
+        "aishang_jzds/pages/transfer/transfer"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "backgroundColor": "#f8e1da",
+        "list": [
+            {
+                "pagePath": "aishang_jzds/pages/index/index",
+                "text": "我要挑战",
+                "iconPath": "aishang_jzds/images/icon-index2.png",
+                "selectedIconPath": "aishang_jzds/images/icon-index.png"
+            },
+            {
+                "pagePath": "aishang_jzds/pages/home/home",
+                "text": "个人中心",
+                "iconPath": "aishang_jzds/images/icon-info.png",
+                "selectedIconPath": "aishang_jzds/images/icon-info2.png"
+            }
+        ]
+    }
 }

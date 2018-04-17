@@ -1,3 +1,0 @@
-<view class='answerbg'>
-  <view animation="{{animationData}}" class='num'>{{num2}}</view>
-</view>

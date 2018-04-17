@@ -1,0 +1,93 @@
+<!--pages/home/home.wxml-->
+<scroll-view>
+    <view class='contentFirst'>
+        <view class="{{isTrue?'show':'hide'}}">
+            <view class='home-zhezhao'>
+                <view class='zhezhaoFather clearfix'>
+                    <text class='zhezhao-title'>1</text>
+                    <text class='zhezhao-text'>登录自动获得一次挑战机会，每天可以分享到十个不同的群，获得十次免费的机会</text>
+                </view>
+                <view class='zhezhaoFather clearfix'>
+                    <text class='zhezhao-title'>2</text>
+                    <text class='zhezhao-text'>由于微信版本更新，可能会导致小程序的某些功能出现异常，请退出微信后重新打开。</text>
+                </view>
+                <view class='zhezhaoFather clearfix'>
+                    <text class='zhezhao-title'>3</text>
+                    <text class='zhezhao-text'>挑战过程中答题时间会随着挑战进行而缩短。</text>
+                </view>
+                <view class='zhezhaoFather clearfix'>
+                    <text class='zhezhao-title'>4</text>
+                    <text class='zhezhao-text'>挑战过程中，在规定时间内连续答对40道简单的数字加减题，挑战成功。</text>
+                </view>
+                <view class='zhezhaoFather clearfix'>
+                    <text class='zhezhao-title'>5</text>
+                    <text class='zhezhao-text'>挑战成功后，您可以免费挑选娃娃(如果挑选的娃娃缺货，将随机发货)，填写领取信息，客服按照申请顺序发货，娃娃包邮。</text>
+                </view>
+                <text class='zhzhaoBottom'>如需了解详情请联系客服</text>
+                <button class='zhezhaoBtn' open-type='contact' session-from='weapp'>立即联系</button>
+            </view>
+            <image src='../../images/index-icon-hide.png' class='icon-hide' bindtap='displayHide'></image>
+        </view>
+        <view class='content'>
+            <view class='contentTop'>
+                <image src='../../images/home-icon-right.png' class='homeTitleLeft'></image>
+                <text class='top-text'>挑战成功赢娃娃</text>
+                <image src='../../images/home-icon-title.png' class='home-icon-title' bindtap='display'></image>
+                <image src='../../images/home-icon-right.png' class='homeTitleRight'></image>
+            </view>
+        </view>
+        <text class='contentTitle contentFirstText'>加减大师</text>
+        <text class='contentTitle contentFirstText'>判断力训练</text>
+        <text class='contentFirstText'>当前共有{{num}}次挑战</text>
+        <button class='btn' bindtap='answer'>开始挑战</button>
+        <button open-type="share" class='share'>
+            <image src='../../images/wx-logo.png' class='logo'></image>
+            <text class='but-text' class='contentFirstText'> 约群朋友一起来挑战</text>
+        </button>
+    </view>
+    <view>
+        <view class='contentBottom'>
+            <view class='BottomFirst'>
+                <text catchtap='listSwitching' id='0' data-id='0' class="{{tabArr.curHdIndex=='0'? 'active' : ''}}">荣誉榜</text>
+                <text catchtap='listSwitching' id='1' data-id='1' class="{{tabArr.curHdIndex=='1'? 'active' : ''}}">毅力榜</text>
+                <text catchtap='listSwitching' id='2' data-id='2' class="borderNone {{tabArr.curHdIndex=='2'? 'active' : ''}}">娃娃奖品</text>
+            </view>
+            <view class='advertising'>
+                <image src='../../images/advertising.png'></image>
+            </view>
+            <view class="tab-right">
+                <view class="right-item {{tabArr.curBdIndex=='0'? 'active2' : ''}}">
+                    <view class='content-item'>
+                        <image src='{{item.avater}}' class='avater'></image>
+                        <text class='name'>{{item.name}}微信昵称</text>
+                        <text class='wawa'>获得娃娃{{wnum}}个</text>
+                    </view>
+                </view>
+
+                <view class="right-item {{tabArr.curBdIndex=='1'? 'active2' : ''}}">
+                    <view class='content-item'>
+                        <image src='{{item.avater}}' class='avater'></image>
+                        <text class='name'>{{item.name}}微信昵称</text>
+                        <text class='wawa'>获得娃娃{{wnum}}个</text>
+                    </view>
+                </view>
+                <view class="right-item item3 {{tabArr.curBdIndex=='2'? 'active2' : ''}}">
+                    <view class='prize'>
+                        <text class='text'>
+                挑战成功领取娃娃
+              </text>
+                        <!-- <text class='receive'>立即领取</text> -->
+                    </view>
+                    <view class='contentbot'>
+                        <view class='contentWa'>
+                            <image src='../../images/idon-wawa.png'></image>
+                            <text class='waName'>立即领取</text>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+        </view>
+    </view>
+</scroll-view>

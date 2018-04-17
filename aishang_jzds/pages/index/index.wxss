@@ -1,0 +1,355 @@
+/* pages/home/home.wxss */
+
+.contentFirst {
+    width: 100%;
+    height: 700rpx;
+    text-align: center;
+    background: linear-gradient(#7c479f, #643980);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx 0;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    display: block;
+}
+
+.home-zhezhao {
+    opacity: 1;
+    width: 90%;
+    height: 70%;
+    margin: 20% auto;
+    background: #fbeeed;
+    border-radius: 20rpx;
+    padding: 30rpx 0;
+}
+
+.zhezhaoFather {
+    width: 90%;
+    height: 100rpx;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.zhezhao-title {
+    background: #7c479f;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 50rpx;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    float: left;
+    margin-right: 50rpx;
+}
+
+.zhezhao-text {
+    width: 83%;
+    color: #000;
+    float: left;
+    font-size: 26rpx;
+    word-wrap: break-word;
+}
+
+.zhzhaoBottom {
+    color: #cc6244;
+    font-size: 30rpx;
+    display: block;
+    width: 60%;
+    margin: 30rpx auto;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.zhezhaoBtn {
+    background: #f3c844;
+    width: 40%;
+    border-radius: 50rpx;
+    margin: 50rpx auto;
+}
+
+.icon-hide {
+    height: 50rpx;
+    width: 50rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -25rpx;
+    bottom: 5%;
+}
+
+.contentBanner {
+    width: 90%;
+    height: 150rpx;
+    margin-bottom: 20rpx;
+}
+
+.contentTitle {
+    font-size: 80rpx !important;
+}
+
+.contentFirstText {
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 80rpx;
+}
+
+.contentBtn {
+    width: 80%;
+    border-radius: 60rpx;
+}
+
+.contentFenXiang {
+    width: 90%;
+    height: 100rpx;
+}
+
+.contentBottom {
+    padding: 20rpx 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #f8e1da;
+}
+
+.BottomFirst {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #663a83;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.BottomFirst text {
+    width: 33.3%;
+    text-align: center;
+    font-size: 30rpx;
+    color: #663a83;
+    line-height: 60rpx;
+    border-right: 1px solid #663a83;
+    box-sizing: border-box;
+}
+
+.btn {
+    width: 90%;
+    height: 120rpx;
+    background: #ffda2f;
+    color: #66467a;
+    line-height: 100rpx;
+    border-radius: 60rpx;
+    border: 5px solid #4a2b60;
+    font-size: 60rpx;
+    font-weight: bold;
+}
+
+.borderNone {
+    border: none !important;
+}
+
+.active {
+    background: #663a83;
+    color: #fff !important;
+    display: block !important;
+}
+
+.active2 {
+    display: block !important;
+}
+
+.advertising {
+    width: 90%;
+    height: 300rpx;
+}
+
+.tab-right {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.right-item {
+    display: none;
+    padding: 0 20rpx;
+    height: 500rpx;
+    background: #fbeeed;
+}
+
+.content-item {
+    height: 100rpx;
+    border-bottom: 1px solid #ede1d4;
+}
+
+.avater {
+    height: 50rpx;
+    width: 50rpx;
+    border-radius: 100rpx;
+    background: red;
+    margin-top: 25rpx;
+    float: left;
+}
+
+.name {
+    font-size: 26rpx;
+    float: left;
+    line-height: 100rpx;
+    color: #b0aaa9;
+    margin-left: 20rpx;
+}
+
+.wawa {
+    font-size: 26rpx;
+    float: right;
+    line-height: 100rpx;
+    color: #999;
+}
+
+.share {
+    width: 90%;
+    height: 100rpx;
+    border-radius: 70rpx;
+    background: #744d8e;
+    display: flex;
+    font-size: 30rpx !important;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 150rpx;
+}
+
+.logo {
+    width: 65rpx;
+    height: 50rpx;
+}
+
+.content {
+    width: 100%;
+    margin-top: 50rpx;
+}
+
+.contentTop {
+    margin: 0 auto;
+    width: 90%;
+    height: 100rpx;
+    background: #bf87b9;
+    border-radius: 50rpx;
+    box-shadow: 2px -5px 5px #56316e;
+    text-align: center;
+    position: relative;
+}
+
+.content .contentTop text {
+    color: #fff;
+    line-height: 100rpx;
+    font-size: 32rpx;
+}
+
+.home-icon-title {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    right: 150rpx;
+    top: 50%;
+    margin-top: -25rpx;
+}
+
+.but-text {
+    color: #fbeeed;
+    line-height: 100rpx;
+    margin-right: 60rpx;
+    font-size: 32rpx;
+}
+
+.homeTitleLeft {
+    position: absolute;
+    top: -50%;
+    left: 100rpx;
+    height: 100rpx;
+    width: 30rpx;
+}
+
+.homeTitleRight {
+    position: absolute;
+    top: -50%;
+    right: 100rpx;
+    height: 100rpx;
+    width: 30rpx;
+}
+
+.advertising {
+    width: 90%;
+    margin: 20rpx auto 30rpx auto;
+}
+
+.advertising image {
+    width: 100%;
+    height: 300rpx;
+}
+
+.prize {
+    height: 100rpx;
+    background: #fbeeed;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 20rpx;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text {
+    font-size: 28rpx;
+}
+
+.item3 {
+    background: #f8e1da !important;
+}
+
+.receive {
+    margin-top: 25rpx;
+    background: #f90;
+    border-radius: 50rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 10rpx;
+    color: #fff;
+    font-size: 28rpx;
+}
+
+.contentWa {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contentWa image {
+    height: 250rpx;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.waName {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    text-align: center;
+    background: #fff;
+    display: inline-block;
+}
