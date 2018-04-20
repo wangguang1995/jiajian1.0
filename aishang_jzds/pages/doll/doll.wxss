@@ -1,0 +1,85 @@
+page{
+    height: 100%;
+    width: 100%;
+}
+.doll_top{
+    background: #7c479f;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 10%;
+    align-items: center;
+}
+.doll_top text{
+    color:#d4b0d0;
+    display: block;
+    height: 50rpx;
+    width: 30%;
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 50rpx;
+}
+.active{
+    background: #fff;
+    height: 50rpx;
+    width: 30%;
+    border-radius: 30rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #8756a7;
+    line-height: 50rpx;
+}
+.active2{
+    display: block!important;
+}
+.doll_bot{
+    width: 100%;
+    height: 90%;
+    
+    background: #f8e1da;
+}
+.doll_bot .aa{
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+.contentWa {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contentWa image {
+    height: 250rpx;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.getWa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80rpx!important;
+    align-items: center;
+    background: #fff;
+    padding: 0 20rpx;
+}
+.waName {
+    line-height: 80rpx;
+    font-size: 30rpx;
+    text-align: center;
+    background: #fff;
+    display: inline-block;
+}
+.waBtn{
+    display: inline-block;
+    width: 20%;
+    height: 60rpx;
+    background: #7c479f;
+    border-radius: 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #fff;
+    font-size: 30rpx;
+}

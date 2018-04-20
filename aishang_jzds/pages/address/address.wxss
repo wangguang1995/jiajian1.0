@@ -2,6 +2,7 @@
 
 page {
     background: #fff;
+    font-size: 30rpx;
 }
 
 .addressName {
@@ -15,7 +16,7 @@ page {
 }
 
 .addressName text {
-    width: 20%;
+    width: 30%;
 }
 
 .addressName input {
@@ -25,19 +26,11 @@ page {
 .section {
     width: 70%;
 }
-
-.picker {
-    position: relative;
+.bb{
+    width: 100%!important;
 }
-
-.picker input {
-    width: 100%;
-}
-
-.pickerDw {
-    position: absolute;
-    right: 0;
-    top: 20%;
-    height: 30rpx;
-    width: 30rpx;
+.addressBtn{
+    width: 90%;
+    height: 100rpx;
+    font-size: 40rpx;
 }

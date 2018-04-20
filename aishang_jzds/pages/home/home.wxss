@@ -61,6 +61,7 @@
     height: 80rpx;
     line-height: 80rpx;
     width: 45%;
+    font-size:30rpx;
     background: #f9e7e3;
     color: #7c479f;
     border-radius: 50rpx;
@@ -88,6 +89,7 @@
     width: 90%;
     background: #22ac38;
     color: #fff;
+    font-size: 36rpx;
     border-radius: 50rpx;
 }
 
@@ -125,6 +127,7 @@
 }
 
 .indexGgBtn {
+    font-size: 30rpx;
     color: #fff;
     background: #7c479f;
     border-radius: 60rpx;

@@ -1,16 +1,20 @@
 // pages/home/home.js
+const app = getApp();
 Page({
     /**
      * 页面的初始数据
      */
     data: {
+        bg:"",
         tabArr: {
             curHdIndex: 0,
-            curBdIndex: 0,
-            isTrue: null
+            curBdIndex: 0
         },
-        num: 2332,
-        wnum: 20
+        isTrue: null,
+        rongyu: null,
+        yili: null,
+        wawa: null,
+        number: null
     },
     display: function (e) {
         this.setData({
@@ -23,6 +27,7 @@ Page({
             isTrue: false
         })
     },
+    //tab切换
     listSwitching: function (e) {
         var dataId = e.currentTarget.id;
         var obj = {};
@@ -32,29 +37,32 @@ Page({
             tabArr: obj
         })
     },
+    //答题按钮
     answer: function (e) {
-        wx.redirectTo({
-            url: '../transfer/transfer'
-        })
-    },
-    onShareAppMessage: function (res) {
-        if (res.from === 'button') {
-            // 来自页面内转发按钮
-            console.log(res.target)
+        var openId = wx.getStorageSync('openId');
+        if(openId == "" ||openId == null){
+            app.getInfo();
+        }else{
+            app.util.request({
+                'url': 'entry/wxapp/reduce',
+                data: {
+                    openId: openId
+                },
+                success(res) {
+                    console.log(res);
+                    wx.setStorageSync('surplus_number', res.data.data.surplus_number);
+                    wx.setStorageSync('answer_number', res.data.data.answer_number);
+                }
+            })
+            var answer_number = wx.getStorageSync('answer_number');
+            console.log(answer_number);
+            wx.redirectTo({
+                url: '../transfer/transfer'
+            })
         }
-        return {
-            title: '自定义转发标题',
-            path: '/page/user?id=123',
-            success: function (res) {
-                console.log(res);
-                // 转发成功
-            },
-            fail: function (res) {
-                console.log(res);
-                // 转发失败
-            }
-        }
+        
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -69,14 +77,130 @@ Page({
     onReady: function () {
 
     },
-
+    //领取娃娃按钮局
+    jinru:function(){
+        wx.navigateTo({
+            url: '../doll/doll',
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        app.getInfo();
+        var _this = this;
+        app.util.request({
+            url: 'entry/wxapp/SysInfo',
+            'cachetime': '30',
+            success:function(res) {
+                console.log(res);
+                _this.setData({
+                    rongyu:res.data.data.rongyu,
+                    yili:res.data.data.yili,
+                    num:res.data.data.sysInfo.challenge_time,
+                    title: res.data.data.sysInfo.title,
+                    wawa:res.data.data.prize,
+                    bg:res.data.data.sysInfo.bg,
+                    number: res.data.data.sysInfo.answer_number
+                })
+                wx.setStorageSync('wawa', res.data.data.prize);
+                wx.setStorageSync('number', res.data.data.sysInfo.answer_number);
+                wx.setStorageSync('answer_time', res.data.data.sysInfo.answer_time);//开始时间
+                wx.setStorageSync('end_time', res.data.data.sysInfo.end_time);//结束时间
+               
+            }
+        })
+        wx.showShareMenu({
+            withShareTicket: true,
+            success: function (res) {
+               
+            },
+            fail: function (res) {
+                // 分享失败
+                console.log(res)
+            }
+        })
+    
     },
-
+    //分享
+    onShareAppMessage: function () {
+        return {
+            title: '加减大师',
+            path: '/aishang_jzds/pages/index/index',
+            success: function (res) {
+                console.log(res);
+                console.log(res.shareTickets[0])
+                if (res.shareTickets[0]!=""){
+                    // console.log
+                    wx.getShareInfo({
+                        shareTicket: res.shareTickets[0],
+                        success: function (res) {
+                            var openId = wx.getStorageSync('openId');
+                            var session3rd = wx.getStorageSync('session3rd');
+                            app.util.request({
+                                url: 'entry/wxapp/Increase',
+                                data: {
+                                    openId: openId,
+                                    session3rd: session3rd,
+                                    iv: res.iv,
+                                    encryptedData: res.encryptedData
+                                },
+                                success: function (res) {
+                                    console.log(res);
+                                    var surplus_number = wx.getStorageSync('surplus_number');
+                                    wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
+                                    wx.showModal({
+                                        title: '分享成功，挑战次数 + 2',
+                                        content: '这是一个模态弹窗',
+                                        success: function (res) {
+                                            if (res.confirm) {
+                                                console.log('用户点击确定')
+                                            } else if (res.cancel) {
+                                                console.log('用户点击取消')
+                                            }
+                                        }
+                                    })   
+                                    
+                                },
+                                fail: res=>{
+                                    wx.showModal({
+                                        title: '提示',
+                                        content: '一个群一天只能分享一次',
+                                        success: function (res) {
+                                            if (res.confirm) {
+                                                console.log('用户点击确定')
+                                            } else if (res.cancel) {
+                                                console.log('用户点击取消')
+                                            }
+                                        }
+                                    })
+                                    
+                                }
+                            })
+                        },
+                        fail: function (res) { console.log(res) }
+                    })
+                }else{
+                    wx.showModal({
+                        title: '分享好友无效，请分享群',
+                        content: '这是一个模态弹窗',
+                        success: function (res) {
+                            if (res.confirm) {
+                                console.log('用户点击确定')
+                            } else if (res.cancel) {
+                                console.log('用户点击取消')
+                            }
+                        }
+                    })
+                }
+                
+            },
+            fail: function (res) {
+                // 分享失败
+                console.log(res)
+            }
+        }
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

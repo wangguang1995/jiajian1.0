@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.1",
 	"appid": "wx06c9040005f15d75",
-	"projectname": "1.0.3",
+	"projectname": "jiajian1.0.2",
 	"svr": "./",
 	"client": "./",
 	"qcloudRoot": "./server",
@@ -62,6 +62,19 @@
 					"id": -1,
 					"name": "transfer",
 					"pathName": "aishang_jzds/pages/transfer/transfer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "aishang_jzds/pages/index/index",
+					"query": "",
+					"scene": "1008"
+				},
+				{
+					"id": -1,
+					"name": "doll",
+					"pathName": "aishang_jzds/pages/doll/doll",
 					"query": ""
 				}
 			]

@@ -3,7 +3,7 @@
     <!--分享  -->
     <view class="index-zhezhao {{isTrue?'show':'hide'}}">
         <view class='index-share'>
-            <image src='../../resource/images/index-share.png'></image>
+            <image src='../../images/index-share.png'></image>
             <button open-type='share' class='index-share-btn'>
                 <text>邀请好友一起来挑战</text>
                 <text>免费</text>
@@ -14,28 +14,25 @@
     </view>
     <view class="container">
         <view class="userinfo">
-            <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>   -->
-            <!-- <block > -->
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}},可领取娃娃数{{num}}个</text>
-            <!-- </block> -->
+            <text class="userinfo-nickname">{{userInfo.nickName}},可领取娃娃数{{canGet}}个</text>
         </view>
         <view class='contentInfo'>
             <view class='challenge'>
                 <text>
-              <text class='fontSize'>1</text> 次
+              <text class='fontSize'>{{surplus_number}}</text> 次
                 </text>
                 <text>挑战机会</text>
             </view>
             <view class='challenge'>
                 <text>
-              <text class='fontSize'>3</text> 次
+              <text class='fontSize'>{{answer_number}}</text> 次
                 </text>
                 <text>以挑战</text>
             </view>
             <view class='challenge'>
                 <text>
-              <text class='fontSize'>1</text> 分
+              <text class='fontSize'>{{record}}</text> 分
                 </text>
                 <text>最高分</text>
             </view>

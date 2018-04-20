@@ -226,7 +226,7 @@ util.request = function (option) {
 							} else {
 								var redirect = '';
 							}
-							app.util.message(response.data.message, redirect, 'error');
+							// app.util.message(response.data.message, redirect, 'error');
 						}
 					}
 					return;
@@ -430,7 +430,6 @@ util.message = function(title, redirect, type) {
 			redirectFunction = 'redirectTo';
 		}
 	}
-	console.log(url)
 	if (!type) {
 		type = 'success';
 	}

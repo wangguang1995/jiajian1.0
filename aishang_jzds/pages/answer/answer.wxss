@@ -4,7 +4,55 @@ page {
     height: 100%;
     background: #313131;
 }
-
+.isShow{
+    display: block;
+}
+.isHide{
+    display: none;
+}
+.zhezhao{
+    height: 100%;
+    width: 100%;
+    background:rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.answerZhezhao{
+    height: 100rpx;
+    width: 60%;
+    background: #fff;
+    border-radius: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    margin-top: -50rpx;
+    left: 50%;
+    margin-left: -30%;
+}
+.answerZhezhao view{
+    font-size: 30rpx;
+}
+.answerZhezhao text:nth-child(2){
+    font-size: 24rpx;
+    color: #999999;
+}
+.answerGb{
+    height: 40rpx;
+    width: 40rpx;
+    position: absolute;
+    right: -10rpx;
+    top: -10rpx;
+}
+.answer-icon-ku{
+    height: 70rpx;
+    width: 70rpx;
+    margin-right: 30rpx;
+    margin-left: 20rpx;
+}
 .answerbg {
     background: #7c479f;
     width: 100%;

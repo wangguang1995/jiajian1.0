@@ -4,60 +4,19 @@ const app = getApp()
 
 Page({
     data: {
-        num: 22,
         userInfo: {},
-        hasUserInfo: false,
         isTrue: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        answer_number:"",//答题次数
+        surplus_number:"",//剩余挑战次数
+        clearance_number:"",//通关次数
+        record:""//最高分
+
     },
 
     onLoad: function () {
-
-        wx.getUserInfo({
-            success: res => {
-                app.globalData.userInfo = res.userInfo
-                this.setData({
-                    userInfo: res.userInfo,
-                    hasUserInfo: true
-                })
-            }
-        })
-        // if (app.globalData.userInfo) {
-        //   this.setData({
-        //     userInfo: app.globalData.userInfo,
-        //     hasUserInfo: true
-        //   })
-        // } else if (this.data.canIUse){
-        //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-        //   // 所以此处加入 callback 以防止这种情况
-        //   app.userInfoReadyCallback = res => {
-        //     this.setData({
-        //       userInfo: res.userInfo,
-        //       hasUserInfo: true
-        //     })
-        //   }
-        // } else {
-        //   // 在没有 open-type=getUserInfo 版本的兼容处理
-        //   wx.getUserInfo({
-        //     success: res => {
-        //       app.globalData.userInfo = res.userInfo
-        //       this.setData({
-        //         userInfo: res.userInfo,
-        //         hasUserInfo: true
-        //       })
-        //     }
-        //   })
-        // }
-
+        app.getInfo();
     },
-    // getUserInfo: function(e) {
-    //   console.log(e)
-    //   app.globalData.userInfo = e.detail.userInfo
-    //   this.setData({
-    //     userInfo: e.detail.userInfo,
-    //     hasUserInfo: true
-    //   })
-    // },
+    
     indexShare: function (e) {
         this.setData({
             isTrue: true
@@ -68,25 +27,119 @@ Page({
             isTrue: false
         })
     },
-    onShareAppMessage: function (res) {
-        if (res.from === 'button') {
-            // 来自页面内转发按钮
-            console.log(res.target)
-        }
+    onShareAppMessage: function () {
         return {
-            title: '自定义转发标题',
-            path: '/page/user?id=123',
+            title: '加减大师',
+            path: '/aishang_jzds/pages/index/index',
             success: function (res) {
-                // 转发成功
                 console.log(res);
+                console.log(res.shareTickets[0])
+                if (res.shareTickets[0] != "") {
+                    // console.log
+                    wx.getShareInfo({
+                        shareTicket: res.shareTickets[0],
+                        success: function (res) {
+                            var openId = wx.getStorageSync('openId');
+                            var session3rd = wx.getStorageSync('session3rd');
+                            app.util.request({
+                                url: 'entry/wxapp/Increase',
+                                data: {
+                                    openId: openId,
+                                    session3rd: session3rd,
+                                    iv: res.iv,
+                                    encryptedData: res.encryptedData
+                                },
+                                success: function (res) {
+                                    console.log(res);
+                                    var surplus_number = wx.getStorageSync('surplus_number');
+                                    wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
+                                    wx.showModal({
+                                        title: '分享成功，挑战次数 + 2',
+                                        content: '这是一个模态弹窗',
+                                        success: function (res) {
+                                            if (res.confirm) {
+                                                console.log('用户点击确定')
+                                            } else if (res.cancel) {
+                                                console.log('用户点击取消')
+                                            }
+                                        }
+                                    })
+
+                                },
+                                fail: res => {
+                                    wx.showModal({
+                                        title: '提示',
+                                        content: '一个群一天只能分享一次',
+                                        success: function (res) {
+                                            if (res.confirm) {
+                                                console.log('用户点击确定')
+                                            } else if (res.cancel) {
+                                                console.log('用户点击取消')
+                                            }
+                                        }
+                                    })
+
+                                }
+                            })
+                        },
+                        fail: function (res) { console.log(res) }
+                    })
+                } else {
+                    wx.showModal({
+                        title: '分享好友无效，请分享群',
+                        content: '这是一个模态弹窗',
+                        success: function (res) {
+                            if (res.confirm) {
+                                console.log('用户点击确定')
+                            } else if (res.cancel) {
+                                console.log('用户点击取消')
+                            }
+                        }
+                    })
+                }
+
             },
             fail: function (res) {
-                // 转发失败
-                console.log(res);
+                // 分享失败
+                console.log(res)
             }
         }
     },
+    
     onShow: function () {
+        wx.showShareMenu({
+            withShareTicket: true,
+            success: function (res) {
 
+            },
+            fail: function (res) {
+                // 分享失败
+                console.log(res)
+            }
+        })
+        var _this = this;
+        
+        
+        if (app.globalData.userInfo!=null){
+            this.setData({
+                userInfo: app.globalData.userInfo
+            })
+        }
+        var answer_number = wx.getStorageSync('answer_number');
+        var clearance_number = wx.getStorageSync('clearance_number');
+        var surplue_number = wx.getStorageSync('surplus_number');
+        var prize_number = wx.getStorageSync('prize_number');
+        var record = wx.getStorageSync('record');
+        var canGet = wx.getStorageSync('canGet');
+        
+        _this.setData({
+            answer_number: answer_number,
+            clearance_number: clearance_number,
+            surplus_number: surplue_number,
+            num: prize_number,
+            record:record,
+            canGet:canGet
+        })
+        
     }
 })

@@ -4,7 +4,8 @@
         "aishang_jzds/pages/home/home",
         "aishang_jzds/pages/answer/answer",
         "aishang_jzds/pages/address/address",
-        "aishang_jzds/pages/transfer/transfer"
+        "aishang_jzds/pages/transfer/transfer",
+        "aishang_jzds/pages/doll/doll"
     ],
     "window": {
         "backgroundTextStyle": "light",
