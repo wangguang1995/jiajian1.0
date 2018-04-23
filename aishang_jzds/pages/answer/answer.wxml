@@ -9,7 +9,7 @@
     </view>
 </view>
 
-<view class='answerbg' bindtap='start'>
+<view class='answerbg' bindtap='start'  style="background:url({{bg}});background-size:100% 800rpx;">
     <text class='title'>连续答对{{answerNumber}}题即挑战成功</text>
     <view class='rq'>
         <progress percent="{{jindu}}" stroke-width="20" class='progress' />

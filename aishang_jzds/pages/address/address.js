@@ -86,15 +86,18 @@ Page({
                     address:e.detail.value.address
 
                 },
-                methed:'POST',
+                // method:'POST',
+                // header:{
+                //     'content-type': 'application/x-www-form-urlencoded'
+                // },
                 success(res) {
                     console.log(res);
                     wx.setStorageSync('name', e.detail.value.name);
                     wx.setStorageSync('mobile', e.detail.value.phone);
                     wx.setStorageSync('address', e.detail.value.address);
                     wx.showModal({
-                        title: '领取成功,请联系客服获取核实信息！',
-                        
+                        title: '提示',
+                        content:'领取成功,请联系客服获取核实信息！',
                         success: function (res) {
                             if (res.confirm) {
                                 wx.switchTab({
@@ -105,7 +108,11 @@ Page({
                             }
                         }
                     })
+                },
+                fail: res=> {
+                    console.log(res);
                 }
+
             })
         }
         

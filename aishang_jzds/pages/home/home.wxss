@@ -1,5 +1,7 @@
 /**index.wxss**/
-
+page{
+    background: #f8e1da;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -26,6 +28,7 @@
 
 .userinfo-nickname {
     color: #fff;
+    font-size: 32rpx;
 }
 
 .contentInfo {
@@ -80,8 +83,6 @@
 }
 
 .contengBottom {
-    height: 700rpx;
-    background: #f8e1da;
     padding-top: 30rpx;
 }
 

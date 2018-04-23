@@ -54,7 +54,6 @@ page {
     margin-left: 20rpx;
 }
 .answerbg {
-    background: #7c479f;
     width: 100%;
     height: 800rpx;
     text-align: center;
@@ -62,6 +61,7 @@ page {
     border-bottom-left-radius: 40rpx;
     border-bottom-right-radius: 40rpx;
     box-shadow: 3px 5px 3px #57326f;
+    box-sizing:border-box;
 }
 
 .title {

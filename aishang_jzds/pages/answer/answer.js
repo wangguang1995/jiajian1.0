@@ -21,7 +21,8 @@ Page({
         startTime:null,
         endTime:null,
         isFlag:null,
-        answerNumber:null
+        answerNumber:null,
+        bg:''
         
     },
 
@@ -78,6 +79,28 @@ Page({
 
         if (id == 40) {
             clearInterval(timer);
+            var openId = wx.getStorageSync('openId');
+            app.util.request({
+                'url': 'entry/wxapp/clearance',
+                data: {
+                    openId: openId
+                },
+                success(res) {
+                    console.log(res);
+
+                }
+            })
+            app.util.request({
+                'url': 'entry/wxapp/record',
+                data: {
+                    openId: openId,
+                    record: num - 1
+                },
+                success(res) {
+                    console.log(res);
+                    wx.setStorageSync('record', res.data.record);
+                }
+            })
             wx.showModal({
                 title: '提示',
                 content: '恭喜你，挑战成功',
@@ -93,17 +116,7 @@ Page({
                     }
                 }
             })
-            var openId = wx.getStorageSync('openId');
-            app.util.request({
-                'url': 'entry/wxapp/clearance',
-                data: {
-                    openId: openId
-                },
-                success(res) {
-                    console.log(res);
-
-                }
-            })
+            
         } else {
             if (this.data.isJson[this.data.id].is_yes == "1") {
                 clearInterval(timer);
@@ -119,7 +132,7 @@ Page({
                     'url': 'entry/wxapp/record',
                     data: {
                         openId: openId,
-                        number: num - 1
+                        record: num - 1
                     },
                     success(res) {
                         console.log(res);
@@ -175,6 +188,17 @@ Page({
 
                 }
             })
+            app.util.request({
+                'url': 'entry/wxapp/record',
+                data: {
+                    openId: openId,
+                    record: num - 1
+                },
+                success(res) {
+                    console.log(res);
+                    wx.setStorageSync('record', res.data.record);
+                }
+            })
         }else{
             if (this.data.isJson[this.data.id].is_yes == "0") {
                 clearInterval(timer);
@@ -190,7 +214,7 @@ Page({
                     'url': 'entry/wxapp/record',
                     data: {
                         openId: openId,
-                        number:num-1
+                        record:num-1
                     },
                     success(res) {
                         console.log(res);
@@ -211,6 +235,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var bg = wx.getStorageSync('bg');
+        console.log(bg)
+        this.setData({
+            bg:bg
+        })
         var _this = this;
         app.util.request({
             'url': 'entry/wxapp/answer',

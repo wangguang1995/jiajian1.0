@@ -15,6 +15,11 @@ Page({
 
     onLoad: function () {
         app.getInfo();
+        if (app.globalData.userInfo != null) {
+            this.setData({
+                userInfo: app.globalData.userInfo
+            })
+        }
     },
     
     indexShare: function (e) {
@@ -54,8 +59,8 @@ Page({
                                     var surplus_number = wx.getStorageSync('surplus_number');
                                     wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                     wx.showModal({
-                                        title: '分享成功，挑战次数 + 2',
-                                        content: '这是一个模态弹窗',
+                                        title: '提示',
+                                        content: '分享成功，挑战次数 + 2',
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -86,8 +91,8 @@ Page({
                     })
                 } else {
                     wx.showModal({
-                        title: '分享好友无效，请分享群',
-                        content: '这是一个模态弹窗',
+                        title: '提示',
+                        content: '分享好友无效，请分享群',
                         success: function (res) {
                             if (res.confirm) {
                                 console.log('用户点击确定')
@@ -120,11 +125,7 @@ Page({
         var _this = this;
         
         
-        if (app.globalData.userInfo!=null){
-            this.setData({
-                userInfo: app.globalData.userInfo
-            })
-        }
+        
         var answer_number = wx.getStorageSync('answer_number');
         var clearance_number = wx.getStorageSync('clearance_number');
         var surplue_number = wx.getStorageSync('surplus_number');

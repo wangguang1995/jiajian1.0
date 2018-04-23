@@ -6,6 +6,8 @@ Page({
      */
     data: {
         bg:"",
+        color:'#ccc',
+        idx:'',
         tabArr: {
             curHdIndex: 0,
             curBdIndex: 0
@@ -14,7 +16,8 @@ Page({
         rongyu: null,
         yili: null,
         wawa: null,
-        number: null
+        number: null,
+        initial_number:null//分享一次，获得多少次机会
     },
     display: function (e) {
         this.setData({
@@ -68,7 +71,7 @@ Page({
      */
 
     onLoad: function (options) {
-
+        console.log(this.data.idx)
     },
 
     /**
@@ -94,6 +97,9 @@ Page({
             'cachetime': '30',
             success:function(res) {
                 console.log(res);
+                if (res.data.data.sysInfo.share_group){
+
+                }
                 _this.setData({
                     rongyu:res.data.data.rongyu,
                     yili:res.data.data.yili,
@@ -101,13 +107,15 @@ Page({
                     title: res.data.data.sysInfo.title,
                     wawa:res.data.data.prize,
                     bg:res.data.data.sysInfo.bg,
-                    number: res.data.data.sysInfo.answer_number
+                    number: res.data.data.sysInfo.answer_number,
+                    initial_number: res.data.data.sysInfo.initial_number
                 })
                 wx.setStorageSync('wawa', res.data.data.prize);
                 wx.setStorageSync('number', res.data.data.sysInfo.answer_number);
                 wx.setStorageSync('answer_time', res.data.data.sysInfo.answer_time);//开始时间
                 wx.setStorageSync('end_time', res.data.data.sysInfo.end_time);//结束时间
-               
+                wx.setStorageSync('bg', res.data.data.sysInfo.bg);
+
             }
         })
         wx.showShareMenu({
@@ -131,7 +139,6 @@ Page({
                 console.log(res);
                 console.log(res.shareTickets[0])
                 if (res.shareTickets[0]!=""){
-                    // console.log
                     wx.getShareInfo({
                         shareTicket: res.shareTickets[0],
                         success: function (res) {
@@ -150,8 +157,8 @@ Page({
                                     var surplus_number = wx.getStorageSync('surplus_number');
                                     wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                     wx.showModal({
-                                        title: '分享成功，挑战次数 + 2',
-                                        content: '这是一个模态弹窗',
+                                        title: '提示',
+                                        content: res.message+"",
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -165,7 +172,7 @@ Page({
                                 fail: res=>{
                                     wx.showModal({
                                         title: '提示',
-                                        content: '一个群一天只能分享一次',
+                                        content: res.message+"",
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -182,8 +189,8 @@ Page({
                     })
                 }else{
                     wx.showModal({
-                        title: '分享好友无效，请分享群',
-                        content: '这是一个模态弹窗',
+                        title: '提示',
+                        content: '分享好友无效，请分享群',
                         success: function (res) {
                             if (res.confirm) {
                                 console.log('用户点击确定')
