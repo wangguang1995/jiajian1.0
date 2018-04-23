@@ -12,7 +12,6 @@ App({
                     success: res => {
                         var userInfo = res.userInfo;
                         _this.globalData.userInfo = res.userInfo; 
-                        
                             util.request({
                                 'url': 'entry/wxapp/Login',
                                 'data': {
@@ -20,8 +19,7 @@ App({
                                     encryptedData: res.encryptedData,
                                     iv: res.iv,
                                     m:s.name
-                                },
-                               
+                                }, 
                                 success:function(res){
                                     console.log(res);
                                     _this.globalData.openId = res.data.data.userInfo.openId;

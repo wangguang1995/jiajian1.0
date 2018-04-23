@@ -21,17 +21,19 @@ Page({
             })
         }
     },
-    
+    //遮罩显示
     indexShare: function (e) {
         this.setData({
             isTrue: true
         })
     },
+    //遮罩隐藏
     indexHide: function (e) {
         this.setData({
             isTrue: false
         })
     },
+    //分享
     onShareAppMessage: function () {
         return {
             title: '加减大师',
@@ -40,7 +42,6 @@ Page({
                 console.log(res);
                 console.log(res.shareTickets[0])
                 if (res.shareTickets[0] != "") {
-                    // console.log
                     wx.getShareInfo({
                         shareTicket: res.shareTickets[0],
                         success: function (res) {
@@ -60,7 +61,8 @@ Page({
                                     wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                     wx.showModal({
                                         title: '提示',
-                                        content: '分享成功，挑战次数 + 2',
+                                        content: res.data.message,
+                                        showCancel: false,
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -74,7 +76,8 @@ Page({
                                 fail: res => {
                                     wx.showModal({
                                         title: '提示',
-                                        content: '一个群一天只能分享一次',
+                                        content: res.data.message,
+                                        showCancel: false,
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -83,6 +86,8 @@ Page({
                                             }
                                         }
                                     })
+
+
 
                                 }
                             })
@@ -123,8 +128,6 @@ Page({
             }
         })
         var _this = this;
-        
-        
         
         var answer_number = wx.getStorageSync('answer_number');
         var clearance_number = wx.getStorageSync('clearance_number');

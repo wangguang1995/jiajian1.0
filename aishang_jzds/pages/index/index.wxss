@@ -20,6 +20,18 @@ page{
     display: none;
 }
 
+.haha_1{
+    background-color: #bfbfbf!important;
+}
+.haha_2{
+    background-color: #ffa13b!important;
+}
+.haha_3{
+    background-color: #ff9696!important;
+}
+.haha_4{
+    background-color: #54bbea!important;
+}
 .show {
     background: rgba(0, 0, 0, 0.3);
     width: 100%;

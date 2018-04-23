@@ -1,12 +1,12 @@
 <!--pages/home/home.wxml-->
 <scroll-view>
-<!--   -->
+    <!--  游戏规则  -->
     <view class='contentFirst' style="background:url({{bg}});background-size:100% 800rpx;">
         <view class="{{isTrue?'show':'hide'}}" >
             <view class='home-zhezhao'>
                 <view class='zhezhaoFather clearfix'>
                     <text class='zhezhao-title'>1</text>
-                    <text class='zhezhao-text'>登录自动获得一次挑战机会，每天可以分享到不同的群，获得{{initial_number}}次免费的机会</text>
+                    <text class='zhezhao-text'>登录自动获得一次挑战机会，{{share}}，每次获得{{share_group}}次免费挑战的机会</text>
                 </view>
                 <view class='zhezhaoFather clearfix'>
                     <text class='zhezhao-title'>2</text>
@@ -57,7 +57,7 @@
         <view class="tab-right">
             <view class="right-item {{tabArr.curBdIndex=='0'? 'active2' : ''}}">
                 <view class='content-item' wx:for-index="idx"  wx:for='{{rongyu}}' >
-                    <text class='paiming'>{{idx+1}}</text>
+                    <text class='paiming haha_{{idx+1}}'>{{idx+1}}</text>
                     <image src='{{item.avatarUrl}}' class='avater'></image>
                     <text class='name'>{{item.nickName}}</text>
                     <text class='wawa'>获得娃娃{{item.clearance_number}}个</text>
@@ -66,7 +66,7 @@
 
             <view class="right-item {{tabArr.curBdIndex=='1'? 'active2' : ''}}">
                 <view class='content-item' wx:for-index="idx" wx:for='{{yili}}'>
-                    <view class='paiming'>{{idx+1}}</view>
+                    <view class='paiming haha_{{idx+1}}'>{{idx+1}}</view>
                     <image src='{{item.avatarUrl}}' class='avater'></image>
                     <text class='name'>{{item.nickName}}</text>
                     <text class='wawa'>挑战{{item.answer_number}}次</text>

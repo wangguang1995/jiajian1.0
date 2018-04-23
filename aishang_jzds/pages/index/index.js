@@ -6,18 +6,17 @@ Page({
      */
     data: {
         bg:"",
-        color:'#ccc',
-        idx:'',
         tabArr: {
             curHdIndex: 0,
             curBdIndex: 0
         },
         isTrue: null,
-        rongyu: null,
-        yili: null,
-        wawa: null,
-        number: null,
-        initial_number:null//分享一次，获得多少次机会
+        rongyu: null,//荣誉排行
+        yili: null,//毅力排行
+        wawa: null,//娃娃数据
+        number: null,//答对多少道题
+        share_group:null,//分享一次，获得多少次机会
+        share:null//每天分享群的次数
     },
     display: function (e) {
         this.setData({
@@ -71,7 +70,7 @@ Page({
      */
 
     onLoad: function (options) {
-        console.log(this.data.idx)
+       
     },
 
     /**
@@ -80,7 +79,7 @@ Page({
     onReady: function () {
 
     },
-    //领取娃娃按钮局
+    //领取娃娃按钮
     jinru:function(){
         wx.navigateTo({
             url: '../doll/doll',
@@ -97,8 +96,14 @@ Page({
             'cachetime': '30',
             success:function(res) {
                 console.log(res);
-                if (res.data.data.sysInfo.share_group){
-
+                if (res.data.data.sysInfo.share_number ==0){
+                    _this.setData({
+                        share:"每天可以分享不同的群"
+                    })
+                }else{
+                    _this.setData({
+                        share: "每天可以分享" + res.data.data.sysInfo.share_number + "次群"
+                    })
                 }
                 _this.setData({
                     rongyu:res.data.data.rongyu,
@@ -108,7 +113,7 @@ Page({
                     wawa:res.data.data.prize,
                     bg:res.data.data.sysInfo.bg,
                     number: res.data.data.sysInfo.answer_number,
-                    initial_number: res.data.data.sysInfo.initial_number
+                    share_group: res.data.data.sysInfo.share_group
                 })
                 wx.setStorageSync('wawa', res.data.data.prize);
                 wx.setStorageSync('number', res.data.data.sysInfo.answer_number);
@@ -158,7 +163,8 @@ Page({
                                     wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                     wx.showModal({
                                         title: '提示',
-                                        content: res.message+"",
+                                        content: res.data.message,
+                                        showCancel:false,
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -167,12 +173,13 @@ Page({
                                             }
                                         }
                                     })   
-                                    
+
                                 },
                                 fail: res=>{
                                     wx.showModal({
                                         title: '提示',
-                                        content: res.message+"",
+                                        content: res.data.message,
+                                        showCancel:false,
                                         success: function (res) {
                                             if (res.confirm) {
                                                 console.log('用户点击确定')
@@ -181,6 +188,8 @@ Page({
                                             }
                                         }
                                     })
+                                    
+
                                     
                                 }
                             })

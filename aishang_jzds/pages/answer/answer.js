@@ -13,16 +13,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        jindu: 100,
-        value: 1,
+        jindu: 100,//进度条
+        value: 1,//当前答到第几题
         now: 50,
-        isJson: {},
-        id:"0",
-        startTime:null,
-        endTime:null,
-        isFlag:null,
-        answerNumber:null,
-        bg:''
+        id:"0",//当前题目写的下标
+        startTime:null,//开始持续时间
+        endTime:null,//结束持续时间
+        isFlag:null,//遮罩显示或隐藏
+        answerNumber:null,//一共多少道题
+        bg:''//背景图
         
     },
 
