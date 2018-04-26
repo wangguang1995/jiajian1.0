@@ -47,13 +47,13 @@
 
     <view class='contengBottom'>
         <button open-type='contact' class='kefu' session-from='weapp'>联系客服</button>
-        <view class='indexGg'>
+        <!-- <view class='indexGg'>
             <image src='../../images/icon-index-gg1.png' class='indexGgImg'></image>
             <view class='indexGg-text'>
                 <text>知识答题，边玩边学</text>
                 <text>12对选择题，答对就有奖</text>
             </view>
             <button class='indexGgBtn'>去答题</button>
-        </view>
+        </view> -->
     </view>
 </scroll-view>

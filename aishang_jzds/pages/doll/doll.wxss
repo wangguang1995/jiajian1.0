@@ -35,16 +35,18 @@ page{
 .doll_bot{
     width: 100%;
     height: 90%;
-    
+    padding: 20rpx 0;
     background: #f8e1da;
+    box-sizing: border-box;
 }
 .doll_bot .aa{
     height: 100%;
     width: 90%;
     margin: 0 auto;
+    display: none;
 }
 .contentWa {
-    margin-top: 20rpx;
+    margin-bottom: 20rpx;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -64,10 +66,11 @@ page{
     align-items: center;
     background: #fff;
     padding: 0 20rpx;
+    box-sizing: border-box;
 }
 .waName {
     line-height: 80rpx;
-    font-size: 30rpx;
+    font-size: 26rpx;
     text-align: center;
     background: #fff;
     display: inline-block;
@@ -81,5 +84,5 @@ page{
     text-align: center;
     line-height: 60rpx;
     color: #fff;
-    font-size: 30rpx;
+    font-size: 26rpx;
 }

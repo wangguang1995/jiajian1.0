@@ -15,5 +15,5 @@
             </view>
         </view>
     </view>
-    <view class="aa {{tabArr.index2=='1'?'active2':''}}"  data-id='1' id='1'>2</view>
+    <view class="aa {{tabArr.index2=='1'?'active2':''}}"  data-id='1' id='1'></view>
 </view>
