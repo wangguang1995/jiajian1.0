@@ -119,12 +119,13 @@ page{
 
 .contentTitle {
     font-size: 80rpx !important;
+    width:60%;
 }
-
 .contentFirstText {
     color: #fff;
     font-size: 30rpx;
     line-height: 80rpx;
+    
 }
 
 .contentBtn {
@@ -263,7 +264,12 @@ page{
     align-items: center;
     padding: 0 150rpx;
 }
-
+.shareShow{
+    display: flex;
+}
+.shareHide{
+    display: none;
+}
 .logo {
     width: 65rpx;
     height: 50rpx;

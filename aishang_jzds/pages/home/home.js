@@ -6,6 +6,7 @@ Page({
     data: {
         userInfo: {},
         isTrue: false,
+        isflag:null,
         answer_number:"",//答题次数
         surplus_number:"",//剩余挑战次数
         clearance_number:"",//通关次数
@@ -20,6 +21,9 @@ Page({
                 userInfo: app.globalData.userInfo
             })
         }
+        wx.setNavigationBarTitle({
+            title: app.globalData.name
+        })
     },
     //遮罩显示
     indexShare: function (e) {
@@ -36,6 +40,9 @@ Page({
     //分享
     onShareAppMessage: function (res) {
         let that = this
+        that.setData({
+            isTrue:false
+        })
         return {
             title: '加减大师',
             path: '/aishang_jzds/pages/index/index',
@@ -66,16 +73,19 @@ Page({
                                         success: function (res) {
                                             console.log(res);
                                             var surplus_number = wx.getStorageSync('surplus_number');
-                                            wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                             wx.showModal({
                                                 title: '提示',
                                                 content: res.data.message,
                                                 showCancel: false,
                                                 success: function (res) {
                                                     if (res.confirm) {
-                                                        console.log('用户点击确定')
+                                                        wx.switchTab({
+                                                            url: '../index/index'
+                                                        })
                                                     } else if (res.cancel) {
-                                                        console.log('用户点击取消')
+                                                        wx.switchTab({
+                                                            url: '../index/index'
+                                                        })
                                                     }
                                                 }
                                             })
@@ -115,16 +125,20 @@ Page({
                                     success: function (res) {
                                         console.log(res);
                                         var surplus_number = wx.getStorageSync('surplus_number');
-                                        wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
+                                        // wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                         wx.showModal({
                                             title: '提示',
                                             content: res.data.message,
                                             showCancel: false,
                                             success: function (res) {
                                                 if (res.confirm) {
-                                                    console.log('用户点击确定')
+                                                    wx.switchTab({
+                                                        url: '../index/index'
+                                                    })
                                                 } else if (res.cancel) {
-                                                    console.log('用户点击取消')
+                                                    wx.switchTab({
+                                                        url: '../index/index'
+                                                    })
                                                 }
                                             }
                                         })
@@ -163,30 +177,30 @@ Page({
     },
     
     onShow: function () {
+        var _this = this;
+        //设置分享获取shareTicket
         wx.showShareMenu({
             withShareTicket: true,
-            success: function (res) {
-
-            },
-            fail: function (res) {
-                // 分享失败
-                console.log(res)
-            }
         })
-        var _this = this;
-        
-        var answer_number = wx.getStorageSync('answer_number');
-        var clearance_number = wx.getStorageSync('clearance_number');
-        var surplue_number = wx.getStorageSync('surplus_number');
-        var prize_number = wx.getStorageSync('prize_number');
-        var record = wx.getStorageSync('record');
-        var canGet = wx.getStorageSync('canGet');
+        var share_number = wx.getStorageSync('share_number');
+        console.log(share_number);
+        if(share_number == 0){
+            _this.setData({
+                isflag: true
+            })
+        }else{
+            _this.setData({
+                isflag: false
+            })
+        }
+        var answer_number = wx.getStorageSync('answer_number');//以挑战多少次
+        var surplue_number = wx.getStorageSync('surplus_number');//剩余多少次挑战机会
+        var record = wx.getStorageSync('record');//最高分
+        var canGet = wx.getStorageSync('canGet');//可领取的娃娃数
         
         _this.setData({
             answer_number: answer_number,
-            clearance_number: clearance_number,
             surplus_number: surplue_number,
-            num: prize_number,
             record:record,
             canGet:canGet
         })

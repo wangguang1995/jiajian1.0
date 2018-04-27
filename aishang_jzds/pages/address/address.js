@@ -86,10 +86,10 @@ Page({
                     address:e.detail.value.address
 
                 },
-                // method:'POST',
-                // header:{
-                //     'content-type': 'application/x-www-form-urlencoded'
-                // },
+                method:'POST',
+                header:{
+                    'content-type': 'application/x-www-form-urlencoded'
+                },
                 success(res) {
                     console.log(res);
                     wx.setStorageSync('name', e.detail.value.name);
@@ -128,7 +128,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**

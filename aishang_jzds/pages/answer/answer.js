@@ -16,6 +16,7 @@ Page({
         jindu: 100,//进度条
         value: 1,//当前答到第几题
         now: 50,
+        zhezhao:false,
         id:"0",//当前题目写的下标
         startTime:null,//开始持续时间
         endTime:null,//结束持续时间
@@ -70,13 +71,13 @@ Page({
         var endTime = this.data.endTime;
         var answerNumber = this.data.answerNumber;
         var dj_time = bili(startTime, endTime, answerNumber).djTime;
-        console.log(this.data.now)
         var num = this.data.value;
+        console.log(this.data.now)
         num++;
         var id = this.data.id;
         id++;
 
-        if (id == 40) {
+        if (id == answerNumber) {
             clearInterval(timer);
             var openId = wx.getStorageSync('openId');
             app.util.request({
@@ -159,7 +160,7 @@ Page({
         num++;
         var id = this.data.id;
         id++;
-        if(id==40){
+        if(id==answerNumber){
             clearInterval(timer);
             wx.showModal({
                 title: '提示',
@@ -235,6 +236,10 @@ Page({
      */
     onShow: function () {
         var bg = wx.getStorageSync('bg');
+        var name = wx.getStorageSync('name');
+        wx.setNavigationBarTitle({
+            title: name,
+        })
         console.log(bg)
         this.setData({
             bg:bg
@@ -262,7 +267,9 @@ Page({
 
     },
     start: function (e) {
-        
+        this.setData({
+            zhezhao:true
+        })
         clearInterval(timer);
         this.progress();
     },

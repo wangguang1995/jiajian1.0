@@ -1,7 +1,6 @@
 //app.js
 import util from './we7/resource/js/util.js';
 import s from './siteinfo.js';
-
 App({
     getInfo:function(){
         var _this = this;
@@ -10,8 +9,7 @@ App({
                 var code = res.code;
                 wx.getUserInfo({
                     success: res => {
-                        var userInfo = res.userInfo;
-                        _this.globalData.userInfo = res.userInfo; 
+                        _this.globalData.userInfo = res.userInfo; //用户信息存在全局变量
                             util.request({
                                 'url': 'entry/wxapp/Login',
                                 'data': {
@@ -23,8 +21,8 @@ App({
                                 success:function(res){
                                     console.log(res);
                                     _this.globalData.openId = res.data.data.userInfo.openId;
-                                    wx.setStorageSync('openId', res.data.data.userInfo.openId);
-                                    wx.setStorageSync('session3rd', res.data.data.session3rd);
+                                    wx.setStorageSync('openId', res.data.data.userInfo.openId);//openID
+                                    wx.setStorageSync('session3rd', res.data.data.session3rd);//session3rd
                                     
                                     var openId = wx.getStorageSync('openId');
                                     util.request({
@@ -35,15 +33,17 @@ App({
                                         },
                                         success:function(res){
                                             console.log(res);
-                                            wx.setStorageSync('answer_number', res.data.data.userinfo[0].answer_number);
-                                            wx.setStorageSync('clearance_number', res.data.data.userinfo[0].clearance_number);
-                                            wx.setStorageSync('surplus_number', res.data.data.userinfo[0].surplus_number);
-                                            wx.setStorageSync('prize_number', res.data.data.userinfo[0].prize_number);
-                                            wx.setStorageSync('record', res.data.data.userinfo[0].record);
-                                            wx.setStorageSync('name', res.data.data.userinfo[0].name);
-                                            wx.setStorageSync('mobile', res.data.data.userinfo[0].mobile);
-                                            wx.setStorageSync('address', res.data.data.userinfo[0].receivingAddress);
-                                            wx.setStorageSync('canGet', res.data.data.userinfo[0].clearance_number - res.data.data.userinfo[0].prize_number);
+                                            wx.setStorageSync('answer_number', res.data.data.userinfo[0].answer_number);//以挑战次数
+                                            wx.setStorageSync('clearance_number', res.data.data.userinfo[0].clearance_number);//获得娃娃数量
+                                            wx.setStorageSync('surplus_number', res.data.data.userinfo[0].surplus_number);//可挑战次数
+                                            wx.setStorageSync('prize_number', res.data.data.userinfo[0].prize_number);//已经领取娃娃数量
+                                            wx.setStorageSync('record', res.data.data.userinfo[0].record);//最高分
+                                            wx.setStorageSync('name', res.data.data.userinfo[0].name);//姓名
+                                            wx.setStorageSync('mobile', res.data.data.userinfo[0].mobile);//手机号
+                                            wx.setStorageSync('address', res.data.data.userinfo[0].receivingAddress);//地址
+                                            wx.setStorageSync('canGet', res.data.data.userinfo[0].clearance_number - res.data.data.userinfo[0].prize_number);//目前可领取的娃娃数量        
+                                               
+                                            
                                         }
                                     })
                                 }
@@ -110,7 +110,8 @@ App({
     globalData: {
         userInfo: null,
         openId: 333,
-        session3rd:null
+        session3rd:null,
+        name:"个人中心"
     },
     siteInfo: require('siteinfo.js')
 });

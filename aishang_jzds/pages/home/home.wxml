@@ -28,7 +28,7 @@
                 <text>
               <text class='fontSize'>{{answer_number}}</text> 次
                 </text>
-                <text>以挑战</text>
+                <text>已挑战</text>
             </view>
             <view class='challenge'>
                 <text>
@@ -37,23 +37,16 @@
                 <text>最高分</text>
             </view>
         </view>
-        <view class='info-btn'>
-            <button open-type='share'>
+        <view class="info-btn {{isflag?'shareHide':'shareShow'}}">
+            <button open-type="share">
                 <image src='../../images/index-icon-logo.png' class='index-logo'></image>
-                炫耀战绩</button>
-            <button bindtap='indexShare'>获得挑战机会</button>
+                炫耀战绩
+            </button>
+            <button bindtap="indexShare">获得挑战机会</button>
         </view>
     </view>
 
     <view class='contengBottom'>
         <button open-type='contact' class='kefu' session-from='weapp'>联系客服</button>
-        <!-- <view class='indexGg'>
-            <image src='../../images/icon-index-gg1.png' class='indexGgImg'></image>
-            <view class='indexGg-text'>
-                <text>知识答题，边玩边学</text>
-                <text>12对选择题，答对就有奖</text>
-            </view>
-            <button class='indexGgBtn'>去答题</button>
-        </view> -->
     </view>
 </scroll-view>

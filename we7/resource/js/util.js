@@ -174,7 +174,7 @@ util.request = function (option) {
 	}
 	wx.showNavigationBarLoading();
 	if (option.showLoading) {
-		util.showLoading();
+		// util.showLoading();
 	}
 	if (option.cachetime) {
 		var cachekey = md5(url);

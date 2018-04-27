@@ -13,10 +13,13 @@ Page({
         isTrue: null,
         rongyu: null,//荣誉排行
         yili: null,//毅力排行
-        wawa: null,//娃娃数据
+        wawa: [],//娃娃数据
         number: null,//答对多少道题
         share_group:null,//分享一次，获得多少次机会
-        share:null//每天分享群的次数
+        share:null,//每天分享群的次数
+        title:"",
+        title_2:"",
+        isflag:null//控制分享按钮显示隐藏
     },
     display: function (e) {
         this.setData({
@@ -42,25 +45,41 @@ Page({
     //答题按钮
     answer: function (e) {
         var openId = wx.getStorageSync('openId');
+        var surplus_number = wx.getStorageSync('surplus_number');
         if(openId == "" ||openId == null){
             app.getInfo();
         }else{
-            app.util.request({
-                'url': 'entry/wxapp/reduce',
-                data: {
-                    openId: openId
-                },
-                success(res) {
-                    console.log(res);
-                    wx.setStorageSync('surplus_number', res.data.data.surplus_number);
-                    wx.setStorageSync('answer_number', res.data.data.answer_number);
-                }
-            })
-            var answer_number = wx.getStorageSync('answer_number');
-            console.log(answer_number);
-            wx.redirectTo({
-                url: '../transfer/transfer'
-            })
+            if (surplus_number <= 0){
+                wx.showModal({
+                    title: '提示',
+                    content: "您已经没有挑战次数了",
+                    showCancel: false,
+                    success: function (res) {
+                        if (res.confirm) {
+                            console.log('用户点击确定')
+                        } else if (res.cancel) {
+                            console.log('用户点击取消')
+                        }
+                    }
+                })
+            }else{
+                app.util.request({
+                    'url': 'entry/wxapp/reduce',
+                    data: {
+                        openId: openId
+                    },
+                    success(res) {
+                        console.log(res);
+                        wx.setStorageSync('surplus_number', res.data.data.surplus_number);
+                        wx.setStorageSync('answer_number', res.data.data.answer_number);
+                    }
+                })
+                var answer_number = wx.getStorageSync('answer_number');
+                wx.redirectTo({
+                    url: '../transfer/transfer'
+                })
+            }
+            
         }
         
     },
@@ -70,15 +89,9 @@ Page({
      */
 
     onLoad: function (options) {
-       
+        
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
     //领取娃娃按钮
     jinru:function(){
         wx.navigateTo({
@@ -93,7 +106,6 @@ Page({
         var _this = this;
         app.util.request({
             url: 'entry/wxapp/SysInfo',
-            'cachetime': '30',
             success:function(res) {
                 console.log(res);
                 if (res.data.data.sysInfo.share_number ==0){
@@ -105,21 +117,51 @@ Page({
                         share: "每天可以分享" + res.data.data.sysInfo.share_number + "次群"
                     })
                 }
+                if (res.data.data.sysInfo.title == ""){
+                    _this.setData({
+                        title:"答题赢娃娃"
+                    })
+                }else{
+                    _this.setData({
+                        title: res.data.data.sysInfo.title
+                    })
+                }
+                if(res.data.data.sysInfo.share_number == 0){
+                    _this.setData({
+                        isflag:true
+                    })
+                }else{
+                    _this.setData({
+                        isflag:false
+                    })
+                }
                 _this.setData({
                     rongyu:res.data.data.rongyu,
                     yili:res.data.data.yili,
                     num:res.data.data.sysInfo.challenge_time,
-                    title: res.data.data.sysInfo.title,
                     wawa:res.data.data.prize,
                     bg:res.data.data.sysInfo.bg,
                     number: res.data.data.sysInfo.answer_number,
-                    share_group: res.data.data.sysInfo.share_group
+                    share_group: res.data.data.sysInfo.share_group,
+                    title_2:res.data.data.sysInfo.title_2
                 })
                 wx.setStorageSync('wawa', res.data.data.prize);
                 wx.setStorageSync('number', res.data.data.sysInfo.answer_number);
                 wx.setStorageSync('answer_time', res.data.data.sysInfo.answer_time);//开始时间
                 wx.setStorageSync('end_time', res.data.data.sysInfo.end_time);//结束时间
                 wx.setStorageSync('bg', res.data.data.sysInfo.bg);
+                wx.setStorageSync('name', res.data.data.sysInfo.name);//标题
+                wx.setStorageSync('share_number', res.data.data.sysInfo.share_number);
+                wx.setStorageSync('title_2', res.data.data.sysInfo.title_2);
+                var name = wx.getStorageSync('name');
+                var surplus_number = wx.getStorageSync('surplus_number');
+                _this.setData({
+                    surplus_number: surplus_number
+                })
+                app.globalData.name = res.data.data.sysInfo.name;
+                wx.setNavigationBarTitle({
+                    title: name
+                })
 
             }
         })
@@ -128,7 +170,20 @@ Page({
         })
     
     },
-    
+    //预览图片
+    previewImage:function(e){
+        var current = e.target.dataset.src;
+        console.log(e)
+        var imgList = [];
+        for(let i = 0;i<this.data.wawa.length;i++){
+            imgList.push(this.data.wawa[i].img_url);
+        }
+        wx.previewImage({
+            current:current,
+            urls: imgList
+        })
+    },
+    //分享
     onShareAppMessage: function (res) {
         let that = this
         return {
@@ -137,10 +192,11 @@ Page({
             success: function (res) {
                 //getSystemInfo是为了获取当前设备信息，判断是android还是ios，如果是android
                 //还需要调用wx.getShareInfo()，只有当成功回调才是转发群，ios就只需判断shareTickets
-
+                //获取用户设备信息
                 wx.getSystemInfo({
                     success: function (d) {
                         console.log(d);
+                        //判断用户手机是IOS还是Android
                         if (d.platform == 'android') {
                             console.log(1)
                             wx.getShareInfo({
@@ -161,7 +217,7 @@ Page({
                                         success: function (res) {
                                             console.log(res);
                                             var surplus_number = wx.getStorageSync('surplus_number');
-                                            wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
+                                            // wx.setStorageSync('surplus_number', (parseInt(surplus_number) + this.data.share_group));
                                             wx.showModal({
                                                 title: '提示',
                                                 content: res.data.message,
@@ -210,7 +266,7 @@ Page({
                                     success: function (res) {
                                         console.log(res);
                                         var surplus_number = wx.getStorageSync('surplus_number');
-                                        wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
+                                        // wx.setStorageSync('surplus_number', (parseInt(surplus_number) + 2));
                                         wx.showModal({
                                             title: '提示',
                                             content: res.data.message,
@@ -268,19 +324,6 @@ Page({
      */
     onUnload: function () {
 
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function (res) {
-
     }
+
 })

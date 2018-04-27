@@ -6,7 +6,7 @@
             <view class='home-zhezhao'>
                 <view class='zhezhaoFather clearfix'>
                     <text class='zhezhao-title'>1</text>
-                    <text class='zhezhao-text'>登录自动获得一次挑战机会，{{share}}，每次获得{{share_group}}次免费挑战的机会</text>
+                    <text class='zhezhao-text'>登录自动获得{{surplus_number}}次挑战机会，{{share}}，每次获得{{share_group}}次免费挑战的机会</text>
                 </view>
                 <view class='zhezhaoFather clearfix'>
                     <text class='zhezhao-title'>2</text>
@@ -37,11 +37,10 @@
                 <image src='../../images/home-icon-right.png' class='homeTitleRight'></image>
             </view>
         </view>
-        <text class='contentTitle contentFirstText'>加减大师</text>
-        <text class='contentTitle contentFirstText'>判断力训练</text>
+        <text class='contentTitle contentFirstText'>{{title_2}}</text>
         <text class='contentFirstText'>当前共有{{num}}次挑战</text>
         <button class='btn' catchtap='answer'>开始挑战</button>
-        <button open-type="share" class='share'>
+        <button open-type="share" class="share {{isflag?'shareHide':'shareShow'}}">
             <image src='../../images/wx-logo.png' class='logo'></image>
             <text class='but-text' class='contentFirstText'> 约群朋友一起来挑战</text>
         </button>
@@ -75,14 +74,13 @@
             <view class="right-item item3 {{tabArr.curBdIndex=='2'? 'active2' : ''}}">
                 <view class='prize'>
                     <text class='text'>
-                        挑战成功领取娃娃
+                        挑战成功领取奖品
                     </text>
                         <text class='receive' catchtap='jinru'>立即领取</text> 
                 </view>
                 <view class='contentbot'>
                     <view class='contentWa' wx:for='{{wawa}}'>
-                        
-                        <image src='{{item.img_url}}'></image>
+                        <image src='{{item.img_url}}' data-src='{{item.img_url}}' bindtap='previewImage'></image>
                         <text class='waName'>{{item.name}}</text>
                     </view>
                 </view>
