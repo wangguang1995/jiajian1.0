@@ -1,4 +1,5 @@
 <view class="zhezhao {{isFlag?'isShow':'isHide'}}">
+<audio src='{{src}}' id='bgAudio' loop='true'></audio>
     <view class='answerZhezhao'>
         <image src='../../images/icon-answer-zz.png' class='answer-icon-ku'></image>
         <view class='answerTopText'>
@@ -8,9 +9,7 @@
         <image src='../../images/icon-answer-gb.png' class='answerGb' bindtap='returnIndex'></image>
     </view>
 </view>
-<view class="startAnswer {{zhezhao?'isHide':'isShow'}}" bindtap='start'>
 
-</view>
 <view class='answerbg'  style="background:url({{bg}});background-size:100% 800rpx;">
     <text class='title'>连续答对{{answerNumber}}题即挑战成功</text>
     <view class='rq'>
@@ -31,7 +30,8 @@
         </view>
     </view>
 </view>
-<view class='answerBut'>
+<view class='answerBut' >
     <image src='../../images/icon-dui.png' bindtap='answerTrue'></image>
+    <audio src='{{src}}' id='chenggong'></audio>
     <image src='../../images/icon-cuo.png' bindtap='answerFalse'></image>
 </view>

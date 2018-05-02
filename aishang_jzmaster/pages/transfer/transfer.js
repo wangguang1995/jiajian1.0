@@ -1,20 +1,21 @@
 // pages/transfer/transfer.js
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         animationData: {},
         num: 3,
-        num2: 3
+        num2: 3,
+        src:''
+        
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        
     },
     animation: function () {
         var animation = wx.createAnimation({
@@ -45,7 +46,7 @@ Page({
                     wx.redirectTo({
                         url: '../answer/answer',
                     })
-                }, 1000)
+                }, 1500)
 
             }
 
@@ -58,10 +59,24 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
-
+    onReady: function (e) {
+        // 使用 wx.createAudioContext 获取 audio 上下文 context
+        this.audioCtx = wx.createAudioContext('myAudio');   
+        this.audioCtx.setSrc('http://p82x8el6i.bkt.clouddn.com/321gogo.mp3');
+        this.audioCtx.play();
     },
-
+    audioPlay: function () {
+        this.audioCtx.play()
+    },
+    audioPause: function () {
+        this.audioCtx.pause()
+    },
+    audio14: function () {
+        this.audioCtx.seek(14)
+    },
+    audioStart: function () {
+        this.audioCtx.seek(0)
+    },
     /**
      * 生命周期函数--监听页面显示
      */
@@ -81,27 +96,6 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
 
     }
 })

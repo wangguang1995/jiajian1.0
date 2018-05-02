@@ -1,4 +1,3 @@
-<!--pages/home/home.wxml-->
 <scroll-view>
     <!--  游戏规则  -->
     <view class='contentFirst' style="background:url({{bg}});background-size:100% 800rpx;">
@@ -38,28 +37,32 @@
             </view>
         </view>
         <text class='contentTitle contentFirstText'>{{title_2}}</text>
-        <text class='contentFirstText'>当前共有{{num}}次挑战</text>
+        <text class='contentFirstText'>当前已完成{{num}}次挑战</text>
         <button class='btn' catchtap='answer'>开始挑战</button>
         <button open-type="share" class="share {{isflag?'shareHide':'shareShow'}}">
-            <image src='../../images/wx-logo.png' class='logo'></image>
-            <text class='but-text' class='contentFirstText'> 约群朋友一起来挑战</text>
+            <image src='{{logoImg}}' class='logo'></image>
+            <text class='but-text' class='contentFirstText'> {{share_content}}</text>
         </button>
+    </view>
+    <!--  广告位  -->
+    <view class="guanggao {{advertising?'hide':''}}">
+        <image src='{{guanggao}}' bindtap='linked'></image>
     </view>
     <!-- 底部排名  -->
     <view class='contentBottom'>
         <view class='BottomFirst'>
             <text catchtap='listSwitching' id='0' data-id='0' class="{{tabArr.curHdIndex=='0'? 'active' : ''}}">荣誉榜</text>
             <text catchtap='listSwitching' id='1' data-id='1' class="{{tabArr.curHdIndex=='1'? 'active' : ''}}">毅力榜</text>
-            <text catchtap='listSwitching' id='2' data-id='2' class="borderNone {{tabArr.curHdIndex=='2'? 'active' : ''}}">娃娃奖品</text>
+            <text catchtap='listSwitching' id='2' data-id='2' class="borderNone {{tabArr.curHdIndex=='2'? 'active' : ''}}">奖品</text>
         </view>
         
         <view class="tab-right">
-            <view class="right-item {{tabArr.curBdIndex=='0'? 'active2' : ''}}">
+            <view class="right-item {{tabArr.curBdIndex=='0'? 'active2' : ''}}" style='background:{{bgColor}};'>
                 <view class='content-item' wx:for-index="idx"  wx:for='{{rongyu}}' >
                     <text class='paiming haha_{{idx+1}}'>{{idx+1}}</text>
                     <image src='{{item.avatarUrl}}' class='avater'></image>
                     <text class='name'>{{item.nickName}}</text>
-                    <text class='wawa'>获得娃娃{{item.clearance_number}}个</text>
+                    <text class='wawa'>获得奖品{{item.clearance_number}}个</text>
                 </view>
             </view>
 
@@ -80,7 +83,7 @@
                 </view>
                 <view class='contentbot'>
                     <view class='contentWa' wx:for='{{wawa}}'>
-                        <image src='{{item.img_url}}' data-src='{{item.img_url}}' bindtap='previewImage'></image>
+                        <image src='{{item.img_url}}' mode='widthFix' data-src='{{item.img_url}}' bindtap='previewImage'></image>
                         <text class='waName'>{{item.name}}</text>
                     </view>
                 </view>

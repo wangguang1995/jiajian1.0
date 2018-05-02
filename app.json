@@ -1,11 +1,12 @@
 {
     "pages": [
-        "aishang_jzds/pages/index/index",
-        "aishang_jzds/pages/home/home",
-        "aishang_jzds/pages/answer/answer",
-        "aishang_jzds/pages/address/address",
-        "aishang_jzds/pages/transfer/transfer",
-        "aishang_jzds/pages/doll/doll"
+        "aishang_jzmaster/pages/index/index",
+        "aishang_jzmaster/pages/home/home",
+        "aishang_jzmaster/pages/answer/answer",
+        "aishang_jzmaster/pages/address/address",
+        "aishang_jzmaster/pages/transfer/transfer",
+        "aishang_jzmaster/pages/webpage/webpage",
+        "aishang_jzmaster/pages/doll/doll"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -16,16 +17,16 @@
         "backgroundColor": "#f8e1da",
         "list": [
             {
-                "pagePath": "aishang_jzds/pages/index/index",
+                "pagePath": "aishang_jzmaster/pages/index/index",
                 "text": "我要挑战",
-                "iconPath": "aishang_jzds/images/icon-index2.png",
-                "selectedIconPath": "aishang_jzds/images/icon-index.png"
+                "iconPath": "aishang_jzmaster/images/icon-index2.png",
+                "selectedIconPath": "aishang_jzmaster/images/icon-index.png"
             },
             {
-                "pagePath": "aishang_jzds/pages/home/home",
+                "pagePath": "aishang_jzmaster/pages/home/home",
                 "text": "个人中心",
-                "iconPath": "aishang_jzds/images/icon-info.png",
-                "selectedIconPath": "aishang_jzds/images/icon-info2.png"
+                "iconPath": "aishang_jzmaster/images/icon-info.png",
+                "selectedIconPath": "aishang_jzmaster/images/icon-info2.png"
             }
         ]
     }

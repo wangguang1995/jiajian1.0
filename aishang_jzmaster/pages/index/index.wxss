@@ -15,11 +15,9 @@ page{
     padding: 20rpx 0;
     box-sizing: border-box
 }
-
 .hide {
     display: none;
 }
-
 .haha_1{
     background-color: #bfbfbf!important;
 }
@@ -40,7 +38,6 @@ page{
     z-index: 10;
     display: block;
 }
-
 .home-zhezhao {
     opacity: 1;
     width: 90%;
@@ -50,14 +47,12 @@ page{
     border-radius: 20rpx;
     padding: 30rpx 0;
 }
-
 .zhezhaoFather {
     width: 90%;
     height: 100rpx;
     margin: 0 auto;
     text-align: left;
 }
-
 .zhezhao-title {
     background: #7c479f;
     height: 50rpx;
@@ -69,7 +64,6 @@ page{
     float: left;
     margin-right: 50rpx;
 }
-
 .zhezhao-text {
     width: 83%;
     color: #000;
@@ -77,7 +71,6 @@ page{
     font-size: 26rpx;
     word-wrap: break-word;
 }
-
 .zhzhaoBottom {
     color: #cc6244;
     font-size: 30rpx;
@@ -85,7 +78,6 @@ page{
     width: 60%;
     margin: 30rpx auto;
 }
-
 .clearfix:after {
     content: ".";
     display: block;
@@ -93,7 +85,6 @@ page{
     clear: both;
     visibility: hidden;
 }
-
 .zhezhaoBtn {
     background: #f3c844;
     width: 40%;
@@ -101,7 +92,6 @@ page{
     border-radius: 50rpx;
     margin: 50rpx auto;
 }
-
 .icon-hide {
     height: 50rpx;
     width: 50rpx;
@@ -110,13 +100,11 @@ page{
     margin-left: -25rpx;
     bottom: 5%;
 }
-
 .contentBanner {
     width: 90%;
     height: 150rpx;
     margin-bottom: 20rpx;
 }
-
 .contentTitle {
     font-size: 80rpx !important;
     width:60%;
@@ -127,17 +115,14 @@ page{
     line-height: 80rpx;
     
 }
-
 .contentBtn {
     width: 80%;
     border-radius: 60rpx;
 }
-
 .contentFenXiang {
     width: 90%;
     height: 100rpx;
 }
-
 .contentBottom {
     padding: 20rpx 0;
     display: flex;
@@ -145,7 +130,6 @@ page{
     justify-content: center;
     background: #f8e1da;
 }
-
 .BottomFirst {
     width: 90%;
     display: flex;
@@ -154,7 +138,6 @@ page{
     box-sizing: border-box;
     margin: 0 auto;
 }
-
 .BottomFirst text {
     width: 33.3%;
     text-align: center;
@@ -164,7 +147,6 @@ page{
     border-right: 1px solid #663a83;
     box-sizing: border-box;
 }
-
 .btn {
     width: 90%;
     height: 120rpx;
@@ -176,31 +158,25 @@ page{
     font-size: 60rpx;
     font-weight: bold;
 }
-
 .borderNone {
     border: none !important;
 }
-
 .active {
     background: #663a83;
     color: #fff !important;
     display: block !important;
 }
-
 .active2 {
     display: block !important;
 }
-
 .advertising {
     width: 90%;
     height: 300rpx;
 }
-
 .tab-right {
     width: 90%;
     margin: 20rpx auto;
 }
-
 .right-item {
     display: none;
     padding: 0 20rpx;
@@ -223,12 +199,6 @@ page{
     height: 100rpx;
     border-bottom: 1px solid #ede1d4;
 }
-/* .right-item .paiming:nth-child(1){
-    background: red;
-}
-.right-item .paiming:nth-child(2){
-    background: #ffa13b;
-} */
 .avater {
     height: 50rpx;
     width: 50rpx;
@@ -236,22 +206,22 @@ page{
     margin-top: 25rpx;
     float: left;
 }
-
 .name {
     font-size: 26rpx;
     float: left;
     line-height: 100rpx;
     color: #b0aaa9;
     margin-left: 20rpx;
+    width: 40%;
+    height:100%;
+    overflow: hidden;
 }
-
 .wawa {
     font-size: 26rpx;
     float: right;
     line-height: 100rpx;
     color: #999;
 }
-
 .share {
     width: 90%;
     height: 100rpx;
@@ -274,12 +244,10 @@ page{
     width: 65rpx;
     height: 50rpx;
 }
-
 .content {
     width: 100%;
     margin-top: 50rpx;
 }
-
 .contentTop {
     margin: 0 auto;
     width: 90%;
@@ -290,13 +258,20 @@ page{
     text-align: center;
     position: relative;
 }
+.guanggao{
+    width: 90%;
+    margin: 20rpx auto 0 auto;
+}
+.guanggao image{
+    width: 100%;
+    height:300rpx;
 
+}
 .content .contentTop text {
     color: #fff;
     line-height: 100rpx;
     font-size: 32rpx;
 }
-
 .home-icon-title {
     width: 50rpx;
     height: 50rpx;
@@ -305,14 +280,12 @@ page{
     top: 50%;
     margin-top: -25rpx;
 }
-
 .but-text {
     color: #fbeeed;
     line-height: 100rpx;
     margin-right: 60rpx;
     font-size: 32rpx;
 }
-
 .homeTitleLeft {
     position: absolute;
     top: -50%;
@@ -320,7 +293,6 @@ page{
     height: 100rpx;
     width: 30rpx;
 }
-
 .homeTitleRight {
     position: absolute;
     top: -50%;
@@ -328,17 +300,14 @@ page{
     height: 100rpx;
     width: 30rpx;
 }
-
 .advertising {
     width: 90%;
     margin: 20rpx auto 30rpx auto;
 }
-
 .advertising image {
     width: 100%;
     height: 300rpx;
 }
-
 .prize {
     height: 100rpx;
     background: #fbeeed;
@@ -348,15 +317,12 @@ page{
     flex-direction: row;
     justify-content: space-between;
 }
-
 .text {
     font-size: 28rpx;
 }
-
 .item3 {
     background: #f8e1da !important;
 }
-
 .receive {
     margin-top: 25rpx;
     background: #f90;
@@ -367,19 +333,16 @@ page{
     color: #fff;
     font-size: 28rpx;
 }
-
 .contentWa {
     margin-top: 20rpx;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
-
 .contentWa image {
-    height: 250rpx;
-    width: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 .getWa{
     display: flex;

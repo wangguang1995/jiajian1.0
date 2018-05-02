@@ -37,44 +37,44 @@
 				{
 					"id": 0,
 					"name": "index",
-					"pathName": "aishang_jzds/pages/index/index",
+					"pathName": "aishang_jzmaster/pages/index/index",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "answer",
-					"pathName": "aishang_jzds/pages/answer/answer",
+					"pathName": "aishang_jzmaster/pages/answer/answer",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "address",
-					"pathName": "aishang_jzds/pages/address/address",
+					"pathName": "aishang_jzmaster/pages/address/address",
 					"query": ""
 				},
 				{
 					"id": 3,
 					"name": "home",
-					"pathName": "aishang_jzds/pages/home/home",
+					"pathName": "aishang_jzmaster/pages/home/home",
 					"query": ""
 				},
 				{
 					"id": -1,
 					"name": "transfer",
-					"pathName": "aishang_jzds/pages/transfer/transfer",
+					"pathName": "aishang_jzmaster/pages/transfer/transfer",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "home",
-					"pathName": "aishang_jzds/pages/index/index",
+					"pathName": "aishang_jzmaster/pages/home/home",
 					"query": "",
 					"scene": "1008"
 				},
 				{
 					"id": -1,
 					"name": "doll",
-					"pathName": "aishang_jzds/pages/doll/doll",
+					"pathName": "aishang_jzmaster/pages/doll/doll",
 					"query": ""
 				}
 			]

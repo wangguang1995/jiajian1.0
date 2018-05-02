@@ -9,6 +9,7 @@ page{
     justify-content: space-around;
     height: 10%;
     align-items: center;
+    padding: 15rpx;
 }
 .doll_top text{
     color:#d4b0d0;
@@ -40,7 +41,7 @@ page{
     box-sizing: border-box;
 }
 .doll_bot .aa{
-    height: 100%;
+    /* height: 100%; */
     width: 90%;
     margin: 0 auto;
     display: none;
@@ -85,4 +86,16 @@ page{
     line-height: 60rpx;
     color: #fff;
     font-size: 26rpx;
+}
+.b{
+    background: #fbeeed;
+}
+.record{
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 32rpx;
+    padding: 10rpx;
+    color: #999;
 }

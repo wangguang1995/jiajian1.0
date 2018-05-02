@@ -1,0 +1,31 @@
+<scroll-view>
+    <view class='doll_top'>
+        <text class="{{tabArr.index=='0'?'active':''}}" data-id='0' id='0' catchtap='getDoll'>挑战领奖</text>
+        <text class="{{tabArr.index=='1'?'active':''}}" data-id='1' id='1' catchtap='getDoll'>领奖记录</text>
+    </view>
+    <view class='doll_bot'>
+        <view class="aa {{tabArr.index2=='0'?'active2':''}}" data-id='0' id='0'>
+            <view class='contentbot'>
+                <view class='contentWa' wx:for='{{wawa}}'>
+                    <image src='{{item.img_url}}' mode='widthFix'></image>
+                    <view class='getWa'>
+                        <text class='waName'>{{item.name}}</text>
+                        <text class='waBtn' id='{{item.id}}' catchtap='goWawa'>领取</text>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+        <view class="aa b {{tabArr.index2=='1'?'active2':''}}" data-id='1' id='1'>
+            <view class='record'>
+                <text>奖品名称</text>
+                <text>领取时间</text>
+            </view>
+            <view class='record' wx:for='{{lists}}'>
+                <text>{{item.pname}}</text>
+                <text>{{item.create_time}}</text>
+            </view>
+        </view>
+    </view>
+
+</scroll-view>

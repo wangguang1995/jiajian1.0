@@ -4,6 +4,7 @@ import s from './siteinfo.js';
 App({
     getInfo:function(){
         var _this = this;
+        var openId = wx.getStorageSync('openId');
         wx.login({
             success: res => {
                 var code = res.code;
@@ -16,7 +17,7 @@ App({
                                     code: code,
                                     encryptedData: res.encryptedData,
                                     iv: res.iv,
-                                    m:s.name
+                                    m:"aishang_jzmaster"
                                 }, 
                                 success:function(res){
                                     console.log(res);
@@ -28,11 +29,11 @@ App({
                                     util.request({
                                         'url': 'entry/wxapp/getUserInfo',
                                         data: {
-                                            openId: openId,
-                                            m:s.name
+                                            openId: openId
                                         },
                                         success:function(res){
                                             console.log(res);
+                                            wx.setStorageSync('uniacid', res.data.data.sysInfo.uniacid);
                                             wx.setStorageSync('answer_number', res.data.data.userinfo[0].answer_number);//以挑战次数
                                             wx.setStorageSync('clearance_number', res.data.data.userinfo[0].clearance_number);//获得娃娃数量
                                             wx.setStorageSync('surplus_number', res.data.data.userinfo[0].surplus_number);//可挑战次数
@@ -42,14 +43,12 @@ App({
                                             wx.setStorageSync('mobile', res.data.data.userinfo[0].mobile);//手机号
                                             wx.setStorageSync('address', res.data.data.userinfo[0].receivingAddress);//地址
                                             wx.setStorageSync('canGet', res.data.data.userinfo[0].clearance_number - res.data.data.userinfo[0].prize_number);//目前可领取的娃娃数量        
-                                               
-                                            
+                                                  
                                         }
                                     })
                                 }
                             });
-                           
-                            
+
                     },
                     fail: function (res) {
                         wx.showModal({
@@ -76,8 +75,7 @@ App({
                                          complete:function(res){
                                              console.log(1);
                                              wx.switchTab({
-                                                 url: '../index/index'
-                                                 
+                                                 url: '../index/index' 
                                              })
                                          }
                                     })
@@ -99,7 +97,6 @@ App({
         //调用API从本地缓存中获取数据
     },
     onShow: function () {
-        
     },
     onHide: function () {
     },

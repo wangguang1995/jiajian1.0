@@ -1,7 +1,7 @@
 var siteinfo = {
-    "name": 'aishang_jzds',
-    "uniacid": "26",
-    "acid": "26",
+    "name": 'aishang_jzmaster',
+    "uniacid": "28",
+    "acid": "28",
     "multiid": "0",
     "version": "1.0.0",
     "siteroot": "https://ceshi.sdshzs.cn/app/index.php",

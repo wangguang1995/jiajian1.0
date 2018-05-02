@@ -1,6 +1,5 @@
-// aishang_jzds/pages/doll/doll.js
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -9,7 +8,8 @@ Page({
         index:0,
         index2:0
     },
-    wawa:null
+    wawa:null,
+    lists:[]
   },
 
   /**
@@ -38,9 +38,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
+      var openId = wx.getStorageSync('openId');
+      var uniacid = wx.getStorageSync('uniacid');
+      var _this = this;
+      app.util.request({
+          'url': 'entry/wxapp/prizeHistory',
+          data:{
+              openId:openId,
+              uniacid: uniacid
+          },
+          success(res) {
+              _this.setData({
+                  lists:res.data.data
+              })
+          }
+      })
+
       var wawa = wx.getStorageSync('wawa');
-      
-      console.log(wawa);
       this.setData({
             wawa:wawa
       })

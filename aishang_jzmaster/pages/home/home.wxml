@@ -15,7 +15,7 @@
     <view class="container">
         <view class="userinfo">
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}},可领取娃娃数{{canGet}}个</text>
+            <text class="userinfo-nickname">{{userInfo.nickName}},可领取奖品数{{canGet}}个</text>
         </view>
         <view class='contentInfo'>
             <view class='challenge'>
@@ -48,5 +48,15 @@
 
     <view class='contengBottom'>
         <button open-type='contact' class='kefu' session-from='weapp'>联系客服</button>
+    </view>
+    <view class='lists'>
+        <view class='listsItem' wx:for='{{arrayList}}'>
+            <image src='{{item.img}}'></image>
+            <view class='itemText'>
+                <text>{{item.content_1}}</text>
+                <text>{{item.content_2}}</text>
+            </view>
+            <button data-path='{{item.path}}' data-appId='{{item.appId}}' bindtap='open'>去挑战</button>
+        </view>
     </view>
 </scroll-view>
